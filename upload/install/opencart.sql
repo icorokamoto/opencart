@@ -1932,6 +1932,7 @@ CREATE TABLE `oc_order` (
   `shipping_company` varchar(32) NOT NULL,
   `shipping_address_1` varchar(128) NOT NULL,
   `shipping_address_2` varchar(128) NOT NULL,
+  `shipping_telephone` VARCHAR( 32 ) NOT NULL,
   `shipping_city` varchar(128) NOT NULL,
   `shipping_postcode` varchar(10) NOT NULL,
   `shipping_country` varchar(128) NOT NULL,

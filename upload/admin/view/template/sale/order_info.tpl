@@ -251,6 +251,11 @@
             <td><?php echo $shipping_address_2; ?></td>
           </tr>
           <?php } ?>
+          <?php /* shipping_telephone */ ?>
+          <tr>
+            <td><?php echo $text_telephone; ?></td>
+            <td><?php echo $shipping_telephone; ?></td>
+          </tr>
           <tr>
             <td><?php echo $text_city; ?></td>
             <td><?php echo $shipping_city; ?></td>

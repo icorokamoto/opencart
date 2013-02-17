@@ -777,6 +777,11 @@ $('#button-guest-shipping').live('click', function() {
 					$('#shipping-address input[name=\'address_1\']').after('<span class="error">' + json['error']['address_1'] + '</span>');
 				}	
 				
+				//ja
+				if (json['error']['telephone']) {
+					$('#shipping-address input[name=Å_'telephoneÅ_']').after('<span class="error">' + json['error']['telephone'] + '</span>');
+				}
+				
 				if (json['error']['city']) {
 					$('#shipping-address input[name=\'city\']').after('<span class="error">' + json['error']['city'] + '</span>');
 				}	

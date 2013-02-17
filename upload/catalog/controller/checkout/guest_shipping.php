@@ -11,6 +11,7 @@ class ControllerCheckoutGuestShipping extends Controller {
 		$this->data['entry_company'] = $this->language->get('entry_company');
 		$this->data['entry_address_1'] = $this->language->get('entry_address_1');
 		$this->data['entry_address_2'] = $this->language->get('entry_address_2');
+		$this->data['entry_telephone'] = $this->language->get('entry_telephone'); //ja
 		$this->data['entry_postcode'] = $this->language->get('entry_postcode');
 		$this->data['entry_city'] = $this->language->get('entry_city');
 		$this->data['entry_country'] = $this->language->get('entry_country');
@@ -40,6 +41,13 @@ class ControllerCheckoutGuestShipping extends Controller {
 			$this->data['address_1'] = $this->session->data['guest']['shipping']['address_1'];			
 		} else {
 			$this->data['address_1'] = '';
+		}
+
+		//ja
+		if (isset($this->session->data['guest']['shipping']['telephone'])) {
+			$this->data['telephone'] = $this->session->data['guest']['shipping']['telephone'];
+		} else {
+			$this->data['telephone'] = '';
 		}
 
 		if (isset($this->session->data['guest']['shipping']['address_2'])) {
@@ -123,6 +131,11 @@ class ControllerCheckoutGuestShipping extends Controller {
 			if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
 				$json['error']['address_1'] = $this->language->get('error_address_1');
 			}
+
+			//ja
+			if ((utf8_strlen($this->request->post['telephone']) < 1) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+				$json['error']['telephone'] = $this->language->get('error_telephone');
+			}
 	
 			if ((utf8_strlen($this->request->post['city']) < 2) || (utf8_strlen($this->request->post['city']) > 128)) {
 				$json['error']['city'] = $this->language->get('error_city');
@@ -151,6 +164,7 @@ class ControllerCheckoutGuestShipping extends Controller {
 			$this->session->data['guest']['shipping']['company'] = trim($this->request->post['company']);
 			$this->session->data['guest']['shipping']['address_1'] = $this->request->post['address_1'];
 			$this->session->data['guest']['shipping']['address_2'] = $this->request->post['address_2'];
+			$this->session->data['guest']['shipping']['telephone'] = $this->request->post['telephone']; //ja
 			$this->session->data['guest']['shipping']['postcode'] = $this->request->post['postcode'];
 			$this->session->data['guest']['shipping']['city'] = $this->request->post['city'];
 			$this->session->data['guest']['shipping']['country_id'] = $this->request->post['country_id'];

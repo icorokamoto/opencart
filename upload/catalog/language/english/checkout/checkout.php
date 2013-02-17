@@ -84,4 +84,6 @@ $_['error_shipping']                 = 'Warning: Shipping method required!';
 $_['error_no_shipping']              = 'Warning: No Shipping options are available. Please <a href="%s">contact us</a> for assistance!';
 $_['error_payment']                  = 'Warning: Payment method required!';
 $_['error_no_payment']               = 'Warning: No Payment options are available. Please <a href="%s">contact us</a> for assistance!';
+
+$_['error_telephone']                = 'Telephone must be between 1 and 32 characters!';
 ?>

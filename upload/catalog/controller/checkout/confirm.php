@@ -180,6 +180,7 @@ class ControllerCheckoutConfirm extends Controller {
 				$data['shipping_company'] = $shipping_address['company'];	
 				$data['shipping_address_1'] = $shipping_address['address_1'];
 				$data['shipping_address_2'] = $shipping_address['address_2'];
+				$data['shipping_telephone'] = $shipping_address['telephone']; //ja
 				$data['shipping_city'] = $shipping_address['city'];
 				$data['shipping_postcode'] = $shipping_address['postcode'];
 				$data['shipping_zone'] = $shipping_address['zone'];
@@ -205,6 +206,7 @@ class ControllerCheckoutConfirm extends Controller {
 				$data['shipping_company'] = '';	
 				$data['shipping_address_1'] = '';
 				$data['shipping_address_2'] = '';
+				$data['shipping_telephone'] = ''; //ja
 				$data['shipping_city'] = '';
 				$data['shipping_postcode'] = '';
 				$data['shipping_zone'] = '';

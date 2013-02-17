@@ -19,6 +19,11 @@
     <td><?php echo $entry_address_2; ?></td>
     <td><input type="text" name="address_2" value="<?php echo $address_2; ?>" class="large-field" /></td>
   </tr>
+  <?php /* telephone */ ?>
+  <tr>
+    <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>
+    <td><input type="text" name="telephone" value="<?php echo $telephone; ?>" class="large-field" /></td>
+  </tr>
   <tr>
     <td><span class="required">*</span> <?php echo $entry_city; ?></td>
     <td><input type="text" name="city" value="<?php echo $city; ?>" class="large-field" /></td>

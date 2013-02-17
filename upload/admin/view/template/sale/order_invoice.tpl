@@ -66,7 +66,7 @@
         <br/>
         <?php echo $text_tax_id; ?> <?php echo $order['payment_tax_id']; ?>
         <?php } ?></td>
-      <td><?php echo $order['shipping_address']; ?></td>
+      <td><?php echo $order['shipping_address']; ?><br /><?php echo $order['shipping_telephone']; /* ja */ ?></td>
     </tr>
   </table>
   <table class="product">

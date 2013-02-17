@@ -1036,6 +1036,14 @@ class ControllerSaleOrder extends Controller {
       		$this->data['shipping_address_2'] = '';
     	}
 		
+    	if (isset($this->request->post['shipping_telephone'])) {
+      		$this->data['shipping_telephone'] = $this->request->post['shipping_telephone'];
+    	} elseif (!empty($order_info)) { 
+			$this->data['shipping_telephone'] = $order_info['shipping_telephone'];
+		} else {
+      		$this->data['shipping_telephone'] = '';
+    	}
+
     	if (isset($this->request->post['shipping_city'])) {
       		$this->data['shipping_city'] = $this->request->post['shipping_city'];
     	} elseif (!empty($order_info)) { 
@@ -1259,6 +1267,11 @@ class ControllerSaleOrder extends Controller {
 			
 			if ((utf8_strlen($this->request->post['shipping_address_1']) < 3) || (utf8_strlen($this->request->post['shipping_address_1']) > 128)) {
 				$this->error['shipping_address_1'] = $this->language->get('error_address_1');
+			}
+
+			//ja
+			if ((utf8_strlen($this->request->post['shipping_telephone']) < 1) || (utf8_strlen($this->request->post['shipping_telephone']) > 32)) {
+				$this->error['shipping_telephone'] = $this->language->get('error_telephone');
 			}
 	
 			if ((utf8_strlen($this->request->post['shipping_city']) < 3) || (utf8_strlen($this->request->post['shipping_city']) > 128)) {
@@ -1633,6 +1646,7 @@ class ControllerSaleOrder extends Controller {
 			$this->data['shipping_zone'] = $order_info['shipping_zone'];
 			$this->data['shipping_zone_code'] = $order_info['shipping_zone_code'];
 			$this->data['shipping_country'] = $order_info['shipping_country'];
+			$this->data['shipping_telephone'] = $order_info['shipping_telephone']; //ja
 
 			$this->data['products'] = array();
 
@@ -2537,6 +2551,7 @@ class ControllerSaleOrder extends Controller {
 					'email'              => $order_info['email'],
 					'telephone'          => $order_info['telephone'],
 					'shipping_address'   => $shipping_address,
+					'shipping_telephone' => $order_info['shipping_telephone'], //ja
 					'shipping_method'    => $order_info['shipping_method'],
 					'payment_address'    => $payment_address,
 					'payment_company_id' => $order_info['payment_company_id'],
