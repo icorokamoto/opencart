@@ -711,6 +711,13 @@ class ControllerSaleCustomer extends Controller {
 		} else {
 			$this->data['error_address_lastname'] = '';
 		}
+
+		//ja
+		if (isset($this->error['address_telephone'])) {
+			$this->data['error_address_telephone'] = $this->error['address_telephone'];
+		} else {
+			$this->data['error_address_telephone'] = '';
+		}
 		
   		if (isset($this->error['address_tax_id'])) {
 			$this->data['error_address_tax_id'] = $this->error['address_tax_id'];
@@ -991,6 +998,11 @@ class ControllerSaleCustomer extends Controller {
 				if ((utf8_strlen($value['lastname']) < 1) || (utf8_strlen($value['lastname']) > 32)) {
 					$this->error['address_lastname'][$key] = $this->language->get('error_lastname');
 				}	
+
+				//ja
+				if ((utf8_strlen($value['telephone']) < 1) || (utf8_strlen($value['telephone']) > 32)) {
+					$this->error['address_telephone'][$key] = $this->language->get('error_telephone');
+				}
 				
 				if ((utf8_strlen($value['address_1']) < 3) || (utf8_strlen($value['address_1']) > 128)) {
 					$this->error['address_address_1'][$key] = $this->language->get('error_address_1');

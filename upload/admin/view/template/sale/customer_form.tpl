@@ -133,6 +133,14 @@
                   <span class="error"><?php echo $error_address_lastname[$address_row]; ?></span>
                   <?php } ?></td>
               </tr>
+              <?php /* telephone */ ?>
+              <tr>
+                <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>
+                <td><input type="text" name="address[<?php echo $address_row; ?>][telephone]" value="<?php echo $address['telephone']; ?>" />
+                  <?php if (isset($error_address_telephone[$address_row])) { ?>
+                  <span class="error"><?php echo $error_address_telephone[$address_row]; ?></span>
+                  <?php } ?></td>
+              </tr>
               <tr>
                 <td><?php echo $entry_company; ?></td>
                 <td><input type="text" name="address[<?php echo $address_row; ?>][company]" value="<?php echo $address['company']; ?>" /></td>
@@ -378,6 +386,13 @@ function addAddress() {
     html += '      <td><span class="required">*</span> <?php echo $entry_lastname; ?></td>';
     html += '      <td><input type="text" name="address[' + address_row + '][lastname]" value="" /></td>';
     html += '    </tr>';
+
+    //ja
+    html += '    <tr>';
+    html += '      <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>';
+    html += '      <td><input type="text" name="address[' + address_row + '][telephone]" value="" /></td>';
+    html += '    </tr>';
+
     html += '    <tr>';
     html += '      <td><?php echo $entry_company; ?></td>';
     html += '      <td><input type="text" name="address[' + address_row + '][company]" value="" /></td>';
