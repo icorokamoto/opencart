@@ -286,6 +286,7 @@ class ControllerAccountAddress extends Controller {
 		$this->data['entry_tax_id'] = $this->language->get('entry_tax_id');		
     	$this->data['entry_address_1'] = $this->language->get('entry_address_1');
     	$this->data['entry_address_2'] = $this->language->get('entry_address_2');
+    	$this->data['entry_telephone'] = $this->language->get('entry_telephone'); //ja
     	$this->data['entry_postcode'] = $this->language->get('entry_postcode');
     	$this->data['entry_city'] = $this->language->get('entry_city');
     	$this->data['entry_country'] = $this->language->get('entry_country');
@@ -323,6 +324,13 @@ class ControllerAccountAddress extends Controller {
     		$this->data['error_address_1'] = $this->error['address_1'];
 		} else {
 			$this->data['error_address_1'] = '';
+		}
+		
+		//ja
+		if (isset($this->error['telephone'])) {
+    		$this->data['error_telephone'] = $this->error['telephone'];
+		} else {
+			$this->data['error_telephone'] = '';
 		}
 		
 		if (isset($this->error['city'])) {
@@ -506,6 +514,11 @@ class ControllerAccountAddress extends Controller {
 
     	if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
       		$this->error['address_1'] = $this->language->get('error_address_1');
+    	}
+
+    	//ja
+    	if ((utf8_strlen($this->request->post['telephone']) < 1) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+      		$this->error['telephone'] = $this->language->get('error_telephone');
     	}
 
     	if ((utf8_strlen($this->request->post['city']) < 2) || (utf8_strlen($this->request->post['city']) > 128)) {

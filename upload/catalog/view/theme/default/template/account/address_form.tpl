@@ -64,6 +64,14 @@
             <span class="error"><?php echo $error_city; ?></span>
             <?php } ?></td>
         </tr>
+        <?php /* telephone */ ?>
+        <tr>
+          <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>
+          <td><input type="text" name="telephone" value="<?php echo $telephone; ?>" />
+          <?php if ($error_telephone) { ?>
+          <span class="error"><?php echo $error_telephone; ?></span>
+          <?php } ?></td>
+        </tr>
         <tr>
           <td><span id="postcode-required" class="required">*</span> <?php echo $entry_postcode; ?></td>
           <td><input type="text" name="postcode" value="<?php echo $postcode; ?>" />

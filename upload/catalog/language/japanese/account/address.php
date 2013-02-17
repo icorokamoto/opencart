@@ -37,4 +37,5 @@ $_['error_country']     = '国を選択してください。';
 $_['error_zone']        = '都道府県を選択してください。';
 
 $_['entry_telephone']   = '電話番号:';
+$_['error_telephone']   = '電話番号を32文字以内で入力して下さい。';
 ?>
