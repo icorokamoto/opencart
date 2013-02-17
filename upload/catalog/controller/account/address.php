@@ -407,6 +407,15 @@ class ControllerAccountAddress extends Controller {
 			$this->data['tax_id'] = '';
 		}
 		
+		//ja
+		if (isset($this->request->post['telephone'])) {
+			$this->data['telephone'] = $this->request->post['telephone'];
+		} elseif (isset($address_info)) {
+			$this->data['telephone'] = $address_info['telephone'];
+		} else {
+			$this->data['telephone'] = '';
+		}
+
 		$this->load->model('account/customer_group');
 		
 		$customer_group_info = $this->model_account_customer_group->getCustomerGroup($this->customer->getCustomerGroupId());
